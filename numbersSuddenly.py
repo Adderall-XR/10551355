@@ -84,6 +84,6 @@ for w in fWords.xreadlines():
         match = reHexWord.search(w)
         if match and not gue.search(z):
             end.append(r""""<tr><td class=\"spoiler\" onclick=\"this.style.color='black'\">{} </td><td> {} </td></tr>"
-            """.format(z, w)
+            """.format(z, w))
 shuffle(end) #If you've seen the list, it's no longer a game
 output.write(format(words=end, length=NUMBER_OF_WORDS))
