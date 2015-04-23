@@ -4,6 +4,11 @@ import sys
 
 def format(**kwargs):
     """
+    This function takes keyword arguments (or a dictionary, if you know what you're doing) and 
+    returns a string of the webpage with all the variables set. 
+    If you look at the page, you'll notice that most of the curly braces are doubled; 
+    that is so that this function knows to ignore them. 
+    
     words is a list of words
     length is the amount of words per page
     """
@@ -62,9 +67,11 @@ gue = re.compile("gue") #removing phonetically dissimlar 'ue's
 if sys.platform == "win32":
     fWords = open("enable1.txt")
 else:
-    fWords = open('/usr/share/dict/words', 'r')
+    fWords = open('/usr/share/dict/words')
 output = open("output.html", 'w')
 if sys.version_info[0] >= 3:
+    # These functions are gone in python 3, so I need to remap them to the functions that 
+    # took their places. 
     fWords.xreadlines = fWords.readlines
     xrange = range
 end = []
