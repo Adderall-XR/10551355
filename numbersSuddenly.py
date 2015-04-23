@@ -62,7 +62,7 @@ subs = [
     ('a', '4'),
 ]
 
-reHexWord = re.compile("[0-9]*")
+reHexWord = re.compile("^[0-9]*$")
 gue = re.compile("gue") #removing phonetically dissimlar 'ue's
 if sys.platform == "win32":
     fWords = open("enable1.txt")
@@ -82,7 +82,7 @@ for w in fWords.xreadlines():
         w = w.replace(old, new)
     if len(w) >= minlen:
         match = reHexWord.search(w)
-        if match and match.group() == w and not gue.search(z):
+        if match and not gue.search(z):
             end.append(r""""<tr><td class=\"spoiler\" onclick=\"this.style.color='black'\">%s </td><td> %s </td></tr>"
             """ % (z,w))
 shuffle(end) #If you've seen the list, it's no longer a game
