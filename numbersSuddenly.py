@@ -9,7 +9,7 @@ def format(**kwargs):
     """
     s = open("base.html").read();
     return s.format(words=",".join(kwargs["words"]), length=kwargs["length"], total=len(kwargs['words']))
-    
+
 minlen = 3 #it's better this way
 NUMBER_OF_WORDS = 50
 subs = [
@@ -62,7 +62,7 @@ gue = re.compile("gue") #removing phonetically dissimlar 'ue's
 if sys.platform == "win32":
     fWords = open("enable1.txt")
 else:
-    fWords = open('/usr/share/dict/words', 'r')
+    fWords = open('/usr/share/dict/words')
 output = open("output.html", 'w')
 if sys.version_info[0] >= 3:
     fWords.xreadlines = fWords.readlines
